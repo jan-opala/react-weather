@@ -1,5 +1,7 @@
 # React weather app
 
+DEMO: [Click](https://react-weather.liskee.ovh)
+
 This project is using [Open-Meteo API](https://open-meteo.com/) and [OpenStreetMaps API](https://nominatim.openstreetmap.org/).
 
 
