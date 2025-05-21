@@ -5,10 +5,20 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image'
+import Spinner from 'react-bootstrap/Spinner';
 
 import './App.css';
 
 export function Weather( {location, state, lat, lon, temperature, weather_code, icon, humidity, wind} ) {
+  if (temperature === -200) {
+    return (
+    <Container className="text-center mt-5">
+      <Spinner animation="grow" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    </Container>
+    );
+  }
   if (temperature === -300) {
     return (
     <Container className="text-center mt-5">
@@ -118,6 +128,7 @@ const App = () => {
   const [wind, setWind] = useState(0);
   
   const onFormSubmit = async(e) => {
+    setTemperature(-200);
     e.preventDefault()
     const formData = new FormData(e.target),
     formDataObj = Object.fromEntries(formData.entries())
@@ -139,7 +150,7 @@ const App = () => {
       <Container className="search mt-5 justify-content-center">
         <Form className="ms-4 me-4 d-flex" onSubmit={onFormSubmit}>
 
-          <Form.Control className="me-3" name="locationInput" type="text" placeholder="Radom, Polska" />
+          <Form.Control autoComplete="off" className="me-3" name="locationInput" type="text" placeholder="Radom, Polska" />
           <Button variant="primary" type="submit">
             Szukaj
           </Button>
