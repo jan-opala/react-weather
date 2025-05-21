@@ -1,0 +1,30 @@
+* {
+    zoom: 105%;
+}
+
+@media screen and (min-width:585px) { 
+.search {
+    display: flex;
+    width: 100%;
+    max-width: 60%;
+    margin: 0 auto;
+    justify-content: center;
+}
+}
+
+
+
+.icon {
+    width: 120px;
+    height: 120px;
+    margin-top: -20px;
+    filter: invert(45%) sepia(80%) saturate(6481%) hue-rotate(246deg) brightness(70%) contrast(143%);
+}
+
+.state {
+    margin-top: -5px;
+}
+
+.next {
+    margin-top: -20px;
+}
