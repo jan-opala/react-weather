@@ -9,7 +9,17 @@ import Spinner from 'react-bootstrap/Spinner';
 
 import './App.css';
 
-export function Weather( {location, state, lat, lon, temperature, weather_code, icon, humidity, wind} ) {
+export function Weather( {data} ) {
+  var location, state, lat, lon, temperature, weather_code, icon, humidity, wind;
+  location = data.location;
+  state = data.state;
+  lat = data.lat;
+  lon = data.lon;
+  temperature = data.temperature;
+  weather_code = data.weather_code;
+  icon = data.icon;
+  humidity = data.humidity;
+  wind = data.wind;
   if (temperature === -200) {
     return (
     <Container className="text-center mt-5">
@@ -117,31 +127,16 @@ export const getWeather = async (loc) => {
 };
 
 const App = () => {
-  const [location, setLocation] = useState("");
-  const [state, setState] = useState("");
-  const [latitude, setLatitude] = useState("");
-  const [longitude, setLongitude] = useState("");
-  const [temperature, setTemperature] = useState(-300);
-  const [weather_code, setWeatherCode] = useState("");
-  const [icon, setIcon] = useState("");
-  const [humidity, setHumidity] = useState(0);
-  const [wind, setWind] = useState(0);
+  const [data, setData] = useState({temperature: -300});
   
   const onFormSubmit = async(e) => {
-    setTemperature(-200);
+    setData({temperature: -200}); // Set loading state
     e.preventDefault()
     const formData = new FormData(e.target),
     formDataObj = Object.fromEntries(formData.entries())
     const weatherData = await getWeather(formDataObj.locationInput);
-    setLocation(weatherData.location);
-    setState(weatherData.state);
-    setLatitude(weatherData.lat);
-    setLongitude(weatherData.lon);
-    setTemperature(weatherData.temperature);
-    setWeatherCode(weatherData.weather_code);
-    setIcon(weatherData.icon);
-    setHumidity(weatherData.humidity);
-    setWind(weatherData.wind);
+    setData(weatherData); // Set the fetched data
+    e.target.reset(); // Reset the form
   }
 
   return (
@@ -150,7 +145,7 @@ const App = () => {
       <Container className="search mt-5 justify-content-center">
         <Form className="ms-4 me-4 d-flex" onSubmit={onFormSubmit}>
 
-          <Form.Control autoComplete="off" className="me-3" name="locationInput" type="text" placeholder="Radom, Polska" />
+          <Form.Control autoComplete="off" className="me-3" name="locationInput" type="text" placeholder="Miasto, Kraj" />
           <Button variant="primary" type="submit">
             Szukaj
           </Button>
@@ -158,7 +153,7 @@ const App = () => {
         </Form>
       </Container>
       
-      <Weather location={location} state={state} lat={latitude} lon={longitude} temperature={temperature} weather_code={weather_code} icon={icon} humidity={humidity} wind={wind} />
+      <Weather data={data} />
 
     </Container>
   );
