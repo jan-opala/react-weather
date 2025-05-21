@@ -55,7 +55,6 @@ export const getWeather = async (loc) => {
     const is_day = weatherData.current.is_day;
     const humidity = weatherData.current.relative_humidity_2m;
     var icon;
-    console.log(weather_code)
     if ([17, 29, 91, 92, 93, 94, 95, 96, 99].includes(weather_code)) {
       icon="thunderstorm.svg";
     } else if ([20, 22, 23, 26, 36, 37, 38, 39, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 83, 84, 85, 86, 87, 88, 89, 90, 93, 94].includes(weather_code)) {
