@@ -10,13 +10,10 @@ import Spinner from 'react-bootstrap/Spinner';
 import './App.css';
 
 export function Weather( {data} ) {
-  var location, state, lat, lon, temperature, weather_code, icon, humidity, wind;
+  var location, state, temperature, icon, humidity, wind;
   location = data.location;
   state = data.state;
-  lat = data.lat;
-  lon = data.lon;
   temperature = data.temperature;
-  weather_code = data.weather_code;
   icon = data.icon;
   humidity = data.humidity;
   wind = data.wind;
