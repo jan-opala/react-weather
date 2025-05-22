@@ -45,9 +45,8 @@ export function Weather( {data} ) {
   }
 
   const listHourly = hourly.time.map((time, index) => {
-    var temperature, icon, humidity, wind_speed, weather_code, cloud_cover, is_day;
+    var temperature, icon, wind_speed, weather_code, cloud_cover, is_day;
     temperature = hourly.temperature_2m[index];
-    humidity = hourly.relative_humidity_2m[index];
     wind_speed = hourly.wind_speed_10m[index];
     weather_code = hourly.weather_code[index];
     cloud_cover = hourly.cloud_cover[index];
@@ -199,10 +198,10 @@ const App = () => {
   }
 
   return (
-    <Container>
-
-      <Container className="search mt-5 justify-content-center">
-        <Form className="ms-4 me-4 d-flex" onSubmit={onFormSubmit}>
+    <Container className="text-center">
+      <Container className="search mt-1 justify-content-center">
+        <Image className="banner" src="react-weather-banner.png"/>
+        <Form className="m-auto ms-4 me-4 d-flex" onSubmit={onFormSubmit}>
 
           <Form.Control autoComplete="off" className="me-3" name="locationInput" type="text" placeholder="Miasto, Kraj" />
           <Button variant="primary" type="submit">
