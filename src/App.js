@@ -32,7 +32,7 @@ export function Weather( {data} ) {
   if (temperature === -300) {
     return (
     <Container className="text-center mt-5">
-      <h1>Wyszukaj lokalizację. 1</h1>
+      <h1>Wyszukaj lokalizację.</h1>
     </Container>
     );
   }
