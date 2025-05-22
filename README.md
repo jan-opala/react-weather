@@ -1,3 +1,5 @@
+<p align="center"><img src="public/react-weather-banner.svg"/></p>
+
 # React weather app
 
 ### DEMO: [Link](https://react-weather.liskee.ovh)
