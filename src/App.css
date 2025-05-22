@@ -20,7 +20,18 @@
     margin-top: -20px;
     filter: invert(45%) sepia(80%) saturate(6481%) hue-rotate(246deg) brightness(70%) contrast(143%);
 }
-
+.icon-small {
+    width: 30px;
+    height: 30px;
+    margin-top: -18px;
+    filter: invert(45%) sepia(80%) saturate(6481%) hue-rotate(246deg) brightness(70%) contrast(143%);
+}
+.text-small {
+    font-size: 0.85rem;
+}
+.text-small-temp {
+    font-size: 0.75rem;
+}
 .state {
     margin-top: -5px;
 }
